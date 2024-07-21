@@ -1,0 +1,11 @@
+{
+  "name": "daily-sungrow",
+  "version": "1.0.0",
+  "description": "Download your daily report from iSolarCloud (Sungrow's platform)",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gerrit & Maz",
+  "license": "MIT"
+}
