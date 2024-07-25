@@ -1,8 +1,8 @@
 # daily-sungrow
 
-This script lets you download your past daily reports from iSolarCloud (a product of Sungrow).
+This script lets you download your past daily reports from iSolarCloud (a product of Sungrow). It saves the daily data as CSV files, analogous to the manual download from iSolarCloud. We have added some extra columns.
 
-For this to achieve it uses [GoSungrow](https://github.com/MickMake/GoSungrow) to retrieve the data from iSolarCloud.
+For this to achieve the script uses [GoSungrow](https://github.com/MickMake/GoSungrow) to retrieve the data from iSolarCloud.
 
 ## Install Node.js
 

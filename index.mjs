@@ -12,7 +12,7 @@ import child_process from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const CSV_HEADERS = 'Zeit,PV-Ertrag(W),Netz(W),Batterie(W),Gesamtverbrauch(W),Batterieladung(%)';
+const CSV_HEADERS = 'Zeit,PV-Ertrag(W),Netz(W),Batterie(W),Gesamtverbrauch(W),Batterieladung(%),Netzfrequenz(Hz),SpannungA(V),SpannungB(V),SpannungC(V)';
 
 const exitCode = await main();
 process.exit(exitCode);
@@ -126,6 +126,10 @@ function loadDailyData(config, date, outputCsvFilePath) {
         'p13126', // Battery Charging Power
         'p13150', // Battery Discharging Power
         'p13141', // Battery Level (SOC)
+		'p13007', // Grid Frequency
+		'p13157', // Phase A Voltage
+		'p13158', // Phase B Voltage
+		'p13159', // Phase C Voltage
     ];
 
     const yyyymmdd = formatDate(date, '');
@@ -165,6 +169,10 @@ function loadDailyData(config, date, outputCsvFilePath) {
             + ',' + (points.p13150 - points.p13126)
             + ',' + points.p13119
             + ',' + points.p13141
+			+ ',' + points.p13007
+			+ ',' + points.p13157
+			+ ',' + points.p13158
+			+ ',' + points.p13159
             + eol;
     }
     fs.writeFileSync(outputCsvFilePath, '\ufeff' + csv, {encoding: 'utf8'});
